@@ -1,0 +1,49 @@
+/* src/components/ShinyButton.css */
+
+@keyframes shine {
+    0% {
+      left: -150%;
+    }
+    100% {
+      left: 150%;
+    }
+  }
+  
+  .shiny-button {
+    position: relative;
+    overflow: hidden;
+    background-color: #2E2E2E; /* Dark Grey */
+    color: #01579B; /* Light Blue */
+    border-color: #01579B; /* Dark Blue */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1; /* Ensure that the button content is below the pseudo-elements */
+  }
+  
+  .shiny-button::before, .shiny-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    z-index: -1; /* Ensure that pseudo-elements are behind the button content */
+    animation: shine 3s alternate-reverse infinite;
+  }
+  
+  .shiny-button::before {
+    border-radius: inherit;
+  }
+  
+  .shiny-button::after {
+    color: inherit;
+    mix-blend-mode: overlay;
+  }
+  
